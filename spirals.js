@@ -2,21 +2,19 @@ var stage = null
 var points = [];
 var group_colours = ["rgba(255,0,0,1)","rgba(0,255,0,1)","rgba(0,0,255,1)", "rgba(0,255,255,1)", "rgba(255,0,255,1)", "rgba(255,255,0,1)"];
 
+var shoutposition = function() {
+	var shout = function(pos) {
+		alert("lat: " + pos.coords.latitude);
+		console.log(pos);
+	}
+	navigator.geolocation.getCurrentPosition(shout);
+}
+
 var buttons = {
 				"list_of" : [
 					{
-						"text" : "Randomise, k = 2",
-						"function" : "points = random_partition(2, points); draw();",
-						"toggle" : null,
-					},
-					{
-						"text" : "k = 3",
-						"function" : "points = random_partition(3, points); draw();",
-						"toggle" : null,
-					},
-					{
-						"text" : "regroup",
-						"function" : "points = regroup_points(points); draw();",
+						"text" : "Get location",
+						"function" : "shoutposition()",
 						"toggle" : null,
 					}
 				],
