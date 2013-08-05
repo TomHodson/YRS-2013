@@ -5,7 +5,7 @@ function soundPlay(which)
     if (!soundEmbed)
     	{
     	soundEmbed = document.createElement("embed");
-    	soundEmbed.setAttribute("src", "/snd/"+which+".wav");
+    	soundEmbed.setAttribute("src", which);
     	soundEmbed.setAttribute("hidden", true);
     	soundEmbed.setAttribute("autostart", true);
     	}
@@ -15,7 +15,7 @@ function soundPlay(which)
     	soundEmbed.removed = true;
     	soundEmbed = null;
     	soundEmbed = document.createElement("embed");
-    	soundEmbed.setAttribute("src", "/snd/"+which+".wav");
+    	soundEmbed.setAttribute("src", which);
     	soundEmbed.setAttribute("hidden", true);
     	soundEmbed.setAttribute("autostart", true);
     	}
@@ -23,7 +23,19 @@ function soundPlay(which)
     document.body.appendChild(soundEmbed);
     }
 //======================================================================
-
+function text2speech(str) {
+	$.getJSON("http://speech.jtalkplugin.com/api/?callback=?", {speech: str, usecache: "false" },
+function(json) {
+	if (json.success == true){
+		// Success - perform your audio operations here
+		var audiofile = json.data.url;
+		soundPlay(audiofile);
+	} else {
+		// Failure
+		alert("Error:" + json.msg);
+	}
+});
+}
 
 var stage = null
 var points = [];
@@ -46,7 +58,7 @@ var buttons = {
 					},
 					{
 						"text" : "hello, world",
-						"function" : "soundPlay('http://speech.jtalkplugin.com/audio/1307260941160.mp3')",
+						"function" : "text2speech('Hello, World')",
 						"toggle" : null,
 					}
 
