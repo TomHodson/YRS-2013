@@ -6,7 +6,7 @@ body{
 
 .canvasNormal{
 	position: relative;
-	background-color: #000000;
+	background-color: #ffa640;
 }
 .wrapperNormal{
 	width: 900px;
@@ -15,7 +15,7 @@ body{
 
 .canvasFullWindow{
     position: absolute;
-    background-color: #FFFFFF;
+    background-color: #ffa640;
     top: 0px;
     left: 0px;
 }
@@ -31,3 +31,9 @@ body{
     top: 0px;
     left: 0px;
 }
+
+#speech{
+width:500px;	
+
+}
+
