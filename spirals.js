@@ -24,7 +24,7 @@ function soundPlay(which)
     }
 //======================================================================
 function text2speech(str) {
-	$.getJSON("http://speech.jtalkplugin.com/api/?callback=?", {speech: str, usecache: "false" },
+	$.getJSON("https://speech.jtalkplugin.com/api/?callback=?", {speech: str, usecache: "false" },
 function(json) {
 	if (json.success == true){
 		// Success - perform your audio operations here
