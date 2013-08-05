@@ -1,3 +1,30 @@
+var soundEmbed = null;
+//======================================================================
+function soundPlay(which)
+    {
+    if (!soundEmbed)
+    	{
+    	soundEmbed = document.createElement("embed");
+    	soundEmbed.setAttribute("src", "/snd/"+which+".wav");
+    	soundEmbed.setAttribute("hidden", true);
+    	soundEmbed.setAttribute("autostart", true);
+    	}
+    else
+    	{
+    	document.body.removeChild(soundEmbed);
+    	soundEmbed.removed = true;
+    	soundEmbed = null;
+    	soundEmbed = document.createElement("embed");
+    	soundEmbed.setAttribute("src", "/snd/"+which+".wav");
+    	soundEmbed.setAttribute("hidden", true);
+    	soundEmbed.setAttribute("autostart", true);
+    	}
+    soundEmbed.removed = false;
+    document.body.appendChild(soundEmbed);
+    }
+//======================================================================
+
+
 var stage = null
 var points = [];
 var group_colours = ["rgba(255,0,0,1)","rgba(0,255,0,1)","rgba(0,0,255,1)", "rgba(0,255,255,1)", "rgba(255,0,255,1)", "rgba(255,255,0,1)"];
@@ -16,7 +43,13 @@ var buttons = {
 						"text" : "Get location",
 						"function" : "shoutposition()",
 						"toggle" : null,
+					},
+					{
+						"text" : "hello, world",
+						"function" : "soundPlay('http://speech.jtalkplugin.com/audio/1307260941160.mp3')",
+						"toggle" : null,
 					}
+
 				],
 				"setup" : function() {
 					var buttonWrapper = document.getElementById("buttonWrapper");
