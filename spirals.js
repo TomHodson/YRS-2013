@@ -57,8 +57,8 @@ var buttons = {
 						"toggle" : null,
 					},
 					{
-						"text" : "hello, world",
-						"function" : "text2speech('Hello, Alan')",
+						"text" : "say",
+						"function" : "text2speech(document.getElementById('speech').value)",
 						"toggle" : null,
 					}
 
