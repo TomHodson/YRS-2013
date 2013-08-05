@@ -46,7 +46,7 @@ var buttons = {
 					},
 					{
 						"text" : "hello, world",
-						"function" : "soundPlay('http://speech.jtalkplugin.com/audio/1307260941160.mp3')",
+						"function" : "soundPlay('http://speech.jtalkplugin.com/audio/1307030738170.mp3')",
 						"toggle" : null,
 					}
 
